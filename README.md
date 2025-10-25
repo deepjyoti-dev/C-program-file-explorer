@@ -1,119 +1,93 @@
-# C-program-file-explorer
-C Graphics File Explorer
-Overview
+📶 100-Node Optimized Wi-Fi 6 NS-3 Simulation (Python)
 
-This is a simple File Explorer application written in C using graphics.h. It allows users to navigate directories, view text files, and perform basic file operations in a graphical interface. It is designed for Windows systems using Turbo C/C++ or WinBGIm library.
+This NS-3 Python script simulates a 100-node Wi-Fi 6 (802.11ax) network optimized for high-density wireless traffic testing.
+It features multi-channel Wi-Fi groups, EDCA QoS traffic classes, and FlowMonitor integration to measure throughput, delay, and packet loss.
 
-Key Features
+✨ Features
 
-Scrollable directory listing with up to 10 files visible at a time.
+100 Wi-Fi Nodes: Arranged in a 10x10 grid with 15m spacing
 
-Visual differentiation of folders and file types using simple icons:
+Multi-Channel Wi-Fi Groups: 4 channels; nodes divided into 4 groups (25 nodes each) to minimize interference
 
-Folders: Rectangle icon
+EDCA QoS Traffic Classes: Voice, Video, Best Effort, Background
 
-Text files (.txt)
+Wi-Fi 6 (802.11ax) Support: OFDMA and MU-MIMO for high throughput
 
-Image files (.jpg, .png)
+UDP Echo Clients/Servers: Simple packet exchange for performance evaluation
 
-Other files: Default icon
+FlowMonitor Integration: Measures per-flow throughput, packet loss, and average delay
 
-Navigate using arrow keys:
+🧩 Requirements
 
-UP/DOWN to select files/folders
+NS-3 with Python bindings (Linux or WSL2 recommended)
 
-ENTER to open folders or view text files
+Python 3.x (tested with Python 3.10+)
 
-BACKSPACE to go back to the previous folder
+NS-3 version 3.41+ (for Wi-Fi 6 support)
 
-File operations:
+⚠️ Windows native Python will not work — use WSL2 Ubuntu or a Linux VM.
 
-C key: Copy the selected file (creates a copy with prefix COPY_)
+⚙️ How to Run
 
-D key: Delete the selected file
+Open your Linux terminal / WSL2.
 
-Text file viewer opens in a pop-up graphics window.
+Navigate to your NS-3 Python scripts folder:
 
-ESC key exits the program.
-
-Requirements
-
-Turbo C/C++ or any compiler that supports graphics.h.
-
-WinBGIm graphics library if using modern compilers like Code::Blocks.
-
-Include graphics.h and link libbgi.a in your project.
-
-File Structure
-
-file_explorer.c – main program file
-
-README.md – this documentation
-
-Compilation Instructions
-Using Turbo C/C++:
-
-Open Turbo C/C++ IDE.
-
-Create a new project and add file_explorer.c.
-
-Make sure graphics.h and conio.h are included in the compiler.
-
-Compile and run the program.
-
-Using Code::Blocks or Modern GCC:
-
-Download WinBGIm graphics library:
-
-WinBGIm download
-
-Place graphics.h and winbgim.h in the compiler's include folder.
-
-Place libbgi.a in the compiler's lib folder.
-
-Compile using:
-
-gcc file_explorer.c -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -o FileExplorer.exe
+cd ~/ns-allinone-3.41/ns-3.41/
 
 
-Run FileExplorer.exe.
+Ensure PYTHONPATH includes NS-3 libraries:
 
-How to Use
+export PYTHONPATH=$(pwd)/build/lib:$PYTHONPATH
 
-Launch the program.
 
-Navigate using UP/DOWN arrows.
+Save the script as wifi6_100nodes.py.
 
-Press ENTER to:
+Run the simulation:
 
-Open a folder
+python3 wifi6_100nodes.py
 
-Open a .txt file in a viewer
 
-Press BACKSPACE to go to the previous folder.
+Monitor console output for per-flow throughput, delay, and packet loss.
 
-Press C to copy the selected file (creates COPY_<filename>).
+📊 Output Interpretation
 
-Press D to delete the selected file.
+Example per-flow output:
 
-Press ESC to exit the program.
+Flow 1: 10.1.0.1 -> 10.1.0.2
+  Tx Packets: 1000
+  Rx Packets: 998
+  Lost Packets: 2
+  Throughput: 8.19 Mbps
+  Average delay: 0.002345 s
 
-Notes
 
-Maximum files per directory displayed: 10 (scrollable).
+Tx Packets: Total packets sent by the client
 
-Supports folders, text files, and image files. Other file types are displayed with a default icon.
+Rx Packets: Packets successfully received by the server
 
-Text file viewer only supports .txt files.
+Lost Packets: Packets lost due to collisions/interference (ideally very low)
 
-File copy/delete operations are basic and do not handle subfolders.
+Throughput: Measured in Mbps over the simulation period
 
-Future Enhancements
+Average Delay: Per-packet latency in seconds
 
-Add PDF and other file viewers.
+🧠 Optimization Notes
 
-Add folder/file tree view.
+Multi-Channel Setup: Reduces collisions between nodes
 
-Improve file operation handling (move, rename).
+EDCA QoS: Prioritizes high-priority traffic (Voice & Video)
 
-Support for drag-and-drop like selection.
+Grid Layout: Prevents nodes from being too close, lowering interference
+
+Wi-Fi 6 Features: OFDMA and MU-MIMO maximize parallel transmissions
+
+Interval Adjustment:
+
+Lower interval → higher traffic load, may increase packet loss
+
+Higher interval → safer throughput, less congestion
+
+🏷️ Tags
+
+#ns3 #wifi6 #802.11ax #simulation #python #networking #udp #flowmonitor #edca #highdensity
