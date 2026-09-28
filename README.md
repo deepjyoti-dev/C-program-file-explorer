@@ -1,4 +1,4 @@
-📶 100-Node Optimized Wi-Fi 6 NS-3 Simulation (Python)
+6📶 100-Node Optimized Wi-Fi 6 NS-3 Simulation (Python)
 
 This NS-3 Python script simulates a 100-node Wi-Fi 6 (802.11ax) network optimized for high-density wireless traffic testing.
 It features multi-channel Wi-Fi groups, EDCA QoS traffic classes, and FlowMonitor integration to measure throughput, delay, and packet loss.
