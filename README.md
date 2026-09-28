@@ -35,7 +35,6 @@ Navigate to your NS-3 Python scripts folder:
 
 cd ~/ns-allinone-3.41/ns-3.41/
 
-
 Ensure PYTHONPATH includes NS-3 libraries:
 
 export PYTHONPATH=$(pwd)/build/lib:$PYTHONPATH
