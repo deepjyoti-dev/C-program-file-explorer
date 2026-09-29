@@ -23,6 +23,7 @@ NS-3 with Python bindings (Linux or WSL2 recommended).
 
 Python 3.x (tested with Python 3.10+)
 
+
 NS-3 version 3.41+ (for Wi-Fi 6 support)
 
 ⚠️ Windows native Python will not work — use WSL2 Ubuntu or a Linux VM.
