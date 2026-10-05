@@ -48,7 +48,6 @@ Run the simulation:
 python3 wifi6_100nodes.py
 
 
-
 Monitor console output for per-flow throughput, delay, and packet loss.
 
 📊 Output Interpretation
